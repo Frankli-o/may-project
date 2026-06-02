@@ -1,19 +1,24 @@
 import streamlit as st
 
-st.title("Personal Spending Advisor")
+st.title("Simple Spending Calculator")
 
-income = st.number_input("Enter your monthly income:", min_value=0.0)
-spending = st.number_input("Enter your monthly spending:", min_value=0.0)
+income = st.number_input("Monthly income:", min_value=0.0)
+food = st.number_input("Food spending:", min_value=0.0)
+shopping = st.number_input("Shopping spending:", min_value=0.0)
+entertainment = st.number_input("Entertainment spending:", min_value=0.0)
 
-saving = income - spending
+total_spending = food + shopping + entertainment
+saving = income - total_spending
 
-st.write("Your estimated monthly savings:", saving)
+st.subheader("Result")
+st.write("Total spending:", total_spending)
+st.write("Money left:", saving)
 
 if income == 0:
-    st.info("Enter your income to begin.")
+    st.info("Enter your income to start.")
 elif saving < 0:
-    st.warning("You are spending more than your income.")
+    st.error("You are spending more than your income.")
 elif saving < income * 0.2:
-    st.warning("Your saving rate is low. Try to save at least 20%.")
+    st.warning("You are saving less than 20% of your income.")
 else:
-    st.success("Your saving rate looks healthy.")
+    st.success("Good job! Your saving looks healthy.")
