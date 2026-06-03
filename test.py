@@ -261,10 +261,10 @@ elif mode == "Risk Management Advisor":
     col1, col2 = st.columns(2)
 
     with col1:
-    st.metric("Estimated Monthly Salary", f"${estimated_monthly_salary:,.2f}")
+        st.metric("Estimated Monthly Salary", f"${estimated_monthly_salary:,.2f}")
 
     with col2:
-    st.metric("Ideal Monthly Saving 20%", f"${ideal_monthly_saving:,.2f}")
+        st.metric("Ideal Monthly Saving 20%", f"${ideal_monthly_saving:,.2f}")
 
 
     income = st.number_input("Monthly income:", min_value=0.0)
