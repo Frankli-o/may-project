@@ -115,3 +115,39 @@ elif mode == "Risk Management Advisor":
         st.warning("Medium risk: Your emergency fund is less than one month of income.")
     else:
         st.success("Low risk: Your financial position looks stable.")
+
+
+
+
+
+        age_group = st.radio(
+        "Choose your age group:",
+        [
+            "16 to 19 years old",
+            "20 to 24 years old",
+            "25 to 34 years old",
+            "35 to 44 years old",
+            "45 to 54 years old",
+            "55 to 64 years old",
+            "65 years and older"
+        ],
+        horizontal=True
+    )
+
+    st.success(f"You selected: {age_group}")
+
+    education_group = st.radio(
+        "Choose your education level:",
+        [
+            "Less than 9th grade",
+            "Some high school, no completion",
+            "Some college, no degree",
+            "Associate's degree",
+            "Bachelor's degree",
+            "Doctor's degree",
+            "Professional degree"
+        ],
+        horizontal=True
+    )
+
+    st.success(f"You selected: {education_group}")
