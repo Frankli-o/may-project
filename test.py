@@ -116,6 +116,22 @@ if mode == "Spending Calculator":
 elif mode == "Risk Management Advisor":
     st.header("Risk Management Advisor")
 
+    age_group = st.radio(
+        "Choose your age group:",
+        [
+            "16 to 19 years old",
+            "20 to 24 years old",
+            "25 to 34 years old",
+            "35 to 44 years old",
+            "45 to 54 years old",
+            "55 to 64 years old",
+            "65 years and older"
+        ],
+        horizontal=True
+    )
+
+    st.success(f"You selected: {age_group}")
+
     income = st.number_input("Monthly income:", min_value=0.0)
     savings = st.number_input("Current total savings:", min_value=0.0)
     debt = st.number_input("Current total debt:", min_value=0.0)
