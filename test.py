@@ -9,7 +9,7 @@ mode = st.sidebar.radio(
     ["Spending Calculator", "Risk Management Advisor"]
 )
 
-st.title("Finance Advisor Website")
+st.title("Personal Finance Advisor")
 
 if mode == "Spending Calculator":
     st.header("Spending Calculator")
