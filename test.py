@@ -4,6 +4,9 @@ st.set_page_config(page_title="Finance Advisor", layout="wide")
 
 st.sidebar.title("Navigation")
 
+st.sidebar.markdown("---")
+st.sidebar.caption("Source: Forbes")
+
 mode = st.sidebar.radio(
     "Select a tool:",
     ["Spending Calculator", "Risk Management Advisor"]
