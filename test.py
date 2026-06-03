@@ -102,25 +102,7 @@ if mode == "Spending Calculator":
         st.metric("Spending", f"${yearly_spending:.2f}")
         st.metric("Saving", f"${yearly_saving:.2f}")
 
-    st.markdown("---")
-
-    st.markdown(
-        f"""
-        <div style="
-            padding: 25px;
-            border-radius: 15px;
-            background-color: #f0f2f6;
-            text-align: center;
-            margin-top: 20px;
-        ">
-            <h2>Main Result</h2>
-            <p style="font-size: 24px;">Estimated Monthly Saving</p>
-            <h1 style="font-size: 60px;">${monthly_saving:.2f}</h1>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
+   
     if income == 0:
         st.info("Enter your income to begin.")
     elif saving < 0:
