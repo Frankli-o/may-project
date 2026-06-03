@@ -27,10 +27,20 @@ if mode == "Spending Calculator":
     entertainment = st.number_input(f"{period} entertainment spending:", min_value=0.0)
     healthcare = st.number_input(f"{period} healthcare spending:", min_value=0.0)
     education = st.number_input(f"{period} education spending:", min_value=0.0)
-    personali = st.number_input(f"{period} personal insurance spending:", min_value=0.0)
+    personal_insurance = st.number_input(f"{period} personal insurance spending:", min_value=0.0)
 
-    total_spending = rent + food + transportation + entertainment + healthcare + education + personali
-    saving=income-total_spending
+    total_spending = (
+        rent
+        + food
+        + transportation
+        + entertainment
+        + healthcare
+        + education
+        + personal_insurance
+    )
+
+    saving = income - total_spending
+
     if period == "Day":
         daily_income = income
         daily_spending = total_spending
@@ -57,7 +67,7 @@ if mode == "Spending Calculator":
         yearly_spending = total_spending * 12
         yearly_saving = saving * 12
 
-    else:  
+    else:
         daily_income = income / 365
         daily_spending = total_spending / 365
         daily_saving = saving / 365
@@ -70,19 +80,46 @@ if mode == "Spending Calculator":
         yearly_spending = total_spending
         yearly_saving = saving
 
-    st.subheader("Your Result")
+    st.subheader("Your Financial Summary")
 
-    st.write(f"Daily income: ${daily_income:.2f}")
-    st.write(f"Daily spending: ${daily_spending:.2f}")
-    st.write(f"Daily saving: ${daily_saving:.2f}")
+    col1, col2, col3 = st.columns(3)
 
-    st.write(f"Monthly income: ${monthly_income:.2f}")
-    st.write(f"Monthly spending: ${monthly_spending:.2f}")
-    st.write(f"Monthly saving: ${monthly_saving:.2f}")
+    with col1:
+        st.markdown("### Daily")
+        st.metric("Income", f"${daily_income:.2f}")
+        st.metric("Spending", f"${daily_spending:.2f}")
+        st.metric("Saving", f"${daily_saving:.2f}")
 
-    st.write(f"Yearly income: ${yearly_income:.2f}")
-    st.write(f"Yearly spending: ${yearly_spending:.2f}")
-    st.write(f"Yearly saving: ${yearly_saving:.2f}")
+    with col2:
+        st.markdown("### Monthly")
+        st.metric("Income", f"${monthly_income:.2f}")
+        st.metric("Spending", f"${monthly_spending:.2f}")
+        st.metric("Saving", f"${monthly_saving:.2f}")
+
+    with col3:
+        st.markdown("### Yearly")
+        st.metric("Income", f"${yearly_income:.2f}")
+        st.metric("Spending", f"${yearly_spending:.2f}")
+        st.metric("Saving", f"${yearly_saving:.2f}")
+
+    st.markdown("---")
+
+    st.markdown(
+        f"""
+        <div style="
+            padding: 25px;
+            border-radius: 15px;
+            background-color: #f0f2f6;
+            text-align: center;
+            margin-top: 20px;
+        ">
+            <h2>Main Result</h2>
+            <p style="font-size: 24px;">Estimated Monthly Saving</p>
+            <h1 style="font-size: 60px;">${monthly_saving:.2f}</h1>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     if income == 0:
         st.info("Enter your income to begin.")
@@ -93,6 +130,7 @@ if mode == "Spending Calculator":
     else:
         st.success("Your saving level looks healthy.")
 
+
 elif mode == "Risk Management Advisor":
     st.header("Risk Management Advisor")
 
@@ -102,10 +140,23 @@ elif mode == "Risk Management Advisor":
     emergency_fund = st.number_input("Emergency fund:", min_value=0.0)
 
     debt_ratio = debt / income if income > 0 else 0
+    emergency_ratio = emergency_fund / income if income > 0 else 0
+    savings_ratio = savings / income if income > 0 else 0
 
     st.subheader("Your Risk Analysis")
 
-    st.write(f"Debt-to-monthly-income ratio: {debt_ratio:.2f}")
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.metric("Debt / Monthly Income", f"{debt_ratio:.2f}")
+
+    with col2:
+        st.metric("Emergency Fund Months", f"{emergency_ratio:.2f}")
+
+    with col3:
+        st.metric("Savings Months", f"{savings_ratio:.2f}")
+
+    st.markdown("---")
 
     if income == 0:
         st.info("Enter your income to begin.")
