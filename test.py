@@ -140,8 +140,8 @@ elif mode == "Risk Management Advisor":
             "Some college, no degree",
             "Associate's degree",
             "Bachelor's degree",
-            "Professional degree",
-            "Doctor's degree"
+            "Doctor's degree",
+            "Professional degree"
         ],
         horizontal=True
     )
