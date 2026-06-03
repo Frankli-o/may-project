@@ -132,6 +132,23 @@ elif mode == "Risk Management Advisor":
 
     st.success(f"You selected: {age_group}")
 
+    education_group = st.radio(
+        "Choose your education level:",
+        [
+            "Less than 9th grade",
+            "Some high school, no completion",
+            "Some college, no degree",
+            "Associate's degree",
+            "Bachelor's degree",
+            "Professional degree",
+            "Doctor's degree"
+        ],
+        horizontal=True
+    )
+
+    st.success(f"You selected: {education_group}")
+
+
     income = st.number_input("Monthly income:", min_value=0.0)
     savings = st.number_input("Current total savings:", min_value=0.0)
     debt = st.number_input("Current total debt:", min_value=0.0)
