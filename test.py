@@ -25,9 +25,9 @@ if mode == "Spending Calculator":
     food = st.number_input(f"{period} food spending:", min_value=0.0)
     transportation = st.number_input(f"{period} transportation spending:", min_value=0.0)
     entertainment = st.number_input(f"{period} entertainment spending:", min_value=0.0)
-    Healthcare = st.number_input(f"{period} healthcare spending:", min_value=0.0)
+    healthcare = st.number_input(f"{period} healthcare spending:", min_value=0.0)
 
-    total_spending = rent + food + transportation + entertainment
+    total_spending = rent + food + transportation + entertainment + healthcare
     saving = income - total_spending
 
     if period == "Day":
