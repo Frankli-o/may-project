@@ -243,18 +243,18 @@ elif mode == "Risk Management Advisor":
 
     st.subheader("Estimated Average Salary")
 
-    col1, col2 = st.columns(2)
+    estimated_monthly_salary = average_salary / 12
+    ideal_monthly_saving = estimated_monthly_salary * 0.20
+
+
+    col1, = st.columns(1)
 
     with col1:
         st.metric("Estimated Annual Salary", f"${average_salary:,.2f}")
 
-    with col2:
-        st.metric("Estimated Monthly Salary", f"${average_salary / 12:,.2f}")
+
 
     st.markdown("---")
-   
-    estimated_monthly_salary = average_salary / 12
-    ideal_monthly_saving = estimated_monthly_salary * 0.20
 
     st.subheader("Ideal Monthly Saving")
 
@@ -267,35 +267,4 @@ elif mode == "Risk Management Advisor":
         st.metric("Ideal Monthly Saving 20%", f"${ideal_monthly_saving:,.2f}")
 
 
-    income = st.number_input("Monthly income:", min_value=0.0)
-    savings = st.number_input("Current total savings:", min_value=0.0)
-    debt = st.number_input("Current total debt:", min_value=0.0)
-    emergency_fund = st.number_input("Emergency fund:", min_value=0.0)
-
-    debt_ratio = debt / income if income > 0 else 0
-    emergency_ratio = emergency_fund / income if income > 0 else 0
-    savings_ratio = savings / income if income > 0 else 0
-
-    st.subheader("Your Risk Analysis")
-
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        st.metric("Debt / Monthly Income", f"{debt_ratio:.2f}")
-
-    with col2:
-        st.metric("Emergency Fund Months", f"{emergency_ratio:.2f}")
-
-    with col3:
-        st.metric("Savings Months", f"{savings_ratio:.2f}")
-
-    st.markdown("---")
-
-    if income == 0:
-        st.info("Enter your income to begin.")
-    elif debt_ratio > 6:
-        st.error("High risk: Your debt is more than six months of income.")
-    elif emergency_fund < income:
-        st.warning("Medium risk: Your emergency fund is less than one month of income.")
-    else:
-        st.success("Low risk: Your financial position looks stable.")
+ 
