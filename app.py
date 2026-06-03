@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Simple Spending Calculator")
+st.title("Spend Smarter Calculator")
 
 income = st.number_input("Monthly income:", min_value=0.0)
 food = st.number_input("Food spending:", min_value=0.0)
