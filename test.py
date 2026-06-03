@@ -148,6 +148,104 @@ elif mode == "Risk Management Advisor":
 
     st.success(f"You selected: {education_group}")
 
+    average_salary_data = {
+        "16 to 19 years old": {
+            "Less than 9th grade": 18000,
+            "Some high school, no completion": 20000,
+            "Some college, no degree": 22000,
+            "Associate's degree": 24000,
+            "Bachelor's degree": 26000,
+            "Doctor's degree": 28000,
+            "Professional degree": 30000
+        },
+        "20 to 24 years old": {
+            "Less than 9th grade": 22000,
+            "Some high school, no completion": 25000,
+            "Some college, no degree": 30000,
+            "Associate's degree": 35000,
+            "Bachelor's degree": 45000,
+            "Doctor's degree": 55000,
+            "Professional degree": 60000
+        },
+        "25 to 34 years old": {
+            "Less than 9th grade": 28000,
+            "Some high school, no completion": 32000,
+            "Some college, no degree": 42000,
+            "Associate's degree": 50000,
+            "Bachelor's degree": 68000,
+            "Doctor's degree": 90000,
+            "Professional degree": 105000
+        },
+        "35 to 44 years old": {
+            "Less than 9th grade": 32000,
+            "Some high school, no completion": 38000,
+            "Some college, no degree": 48000,
+            "Associate's degree": 58000,
+            "Bachelor's degree": 80000,
+            "Doctor's degree": 110000,
+            "Professional degree": 130000
+        },
+        "45 to 54 years old": {
+            "Less than 9th grade": 34000,
+            "Some high school, no completion": 40000,
+            "Some college, no degree": 52000,
+            "Associate's degree": 62000,
+            "Bachelor's degree": 85000,
+            "Doctor's degree": 115000,
+            "Professional degree": 140000
+        },
+        "55 to 64 years old": {
+            "Less than 9th grade": 33000,
+            "Some high school, no completion": 39000,
+            "Some college, no degree": 50000,
+            "Associate's degree": 60000,
+            "Bachelor's degree": 82000,
+            "Doctor's degree": 112000,
+            "Professional degree": 135000
+        },
+        "65 years and older": {
+            "Less than 9th grade": 25000,
+            "Some high school, no completion": 30000,
+            "Some college, no degree": 38000,
+            "Associate's degree": 45000,
+            "Bachelor's degree": 65000,
+            "Doctor's degree": 90000,
+            "Professional degree": 110000
+        }
+    }
+
+    age_group = st.radio(
+        "Choose your age group:",
+        list(age_scores.keys()),
+        horizontal=True
+    )
+
+    education_group = st.radio(
+        "Choose your education level:",
+        list(education_scores.keys()),
+        horizontal=True
+    )
+
+    age_score = age_scores[age_group]
+    education_score = education_scores[education_group]
+
+    average_salary = average_salary_data[age_group][education_group]
+
+    st.success(f"You selected: {age_group}")
+    st.success(f"You selected: {education_group}")
+
+    st.subheader("Estimated Average Salary")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.metric("Estimated Annual Salary", f"${average_salary:,.2f}")
+
+    with col2:
+        st.metric("Estimated Monthly Salary", f"${average_salary / 12:,.2f}")
+
+    st.markdown("---")
+
 
     income = st.number_input("Monthly income:", min_value=0.0)
     savings = st.number_input("Current total savings:", min_value=0.0)
