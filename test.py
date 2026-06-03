@@ -14,23 +14,78 @@ st.title("Finance Advisor Website")
 if mode == "Spending Calculator":
     st.header("Spending Calculator")
 
-    income = st.number_input("Monthly income:", min_value=0.0)
-    rent = st.number_input("Rent / housing cost:", min_value=0.0)
-    food = st.number_input("Food spending:", min_value=0.0)
-    transportation = st.number_input("Transportation spending:", min_value=0.0)
-    entertainment = st.number_input("Entertainment spending:", min_value=0.0)
+    period = st.radio(
+        "Choose your input period:",
+        ["Day", "Month", "Year"],
+        horizontal=True
+    )
+
+    income = st.number_input(f"{period} income:", min_value=0.0)
+    rent = st.number_input(f"{period} rent / housing cost:", min_value=0.0)
+    food = st.number_input(f"{period} food spending:", min_value=0.0)
+    transportation = st.number_input(f"{period} transportation spending:", min_value=0.0)
+    entertainment = st.number_input(f"{period} entertainment spending:", min_value=0.0)
 
     total_spending = rent + food + transportation + entertainment
     saving = income - total_spending
 
+    if period == "Day":
+        daily_income = income
+        daily_spending = total_spending
+        daily_saving = saving
+
+        monthly_income = income * 30
+        monthly_spending = total_spending * 30
+        monthly_saving = saving * 30
+
+        yearly_income = income * 365
+        yearly_spending = total_spending * 365
+        yearly_saving = saving * 365
+
+    elif period == "Month":
+        daily_income = income / 30
+        daily_spending = total_spending / 30
+        daily_saving = saving / 30
+
+        monthly_income = income
+        monthly_spending = total_spending
+        monthly_saving = saving
+
+        yearly_income = income * 12
+        yearly_spending = total_spending * 12
+        yearly_saving = saving * 12
+
+    else:  # Year
+        daily_income = income / 365
+        daily_spending = total_spending / 365
+        daily_saving = saving / 365
+
+        monthly_income = income / 12
+        monthly_spending = total_spending / 12
+        monthly_saving = saving / 12
+
+        yearly_income = income
+        yearly_spending = total_spending
+        yearly_saving = saving
+
     st.subheader("Your Result")
-    st.write(f"Total spending: ${total_spending:.2f}")
-    st.write(f"Money left: ${saving:.2f}")
+
+    st.write(f"Daily income: ${daily_income:.2f}")
+    st.write(f"Daily spending: ${daily_spending:.2f}")
+    st.write(f"Daily saving: ${daily_saving:.2f}")
+
+    st.write(f"Monthly income: ${monthly_income:.2f}")
+    st.write(f"Monthly spending: ${monthly_spending:.2f}")
+    st.write(f"Monthly saving: ${monthly_saving:.2f}")
+
+    st.write(f"Yearly income: ${yearly_income:.2f}")
+    st.write(f"Yearly spending: ${yearly_spending:.2f}")
+    st.write(f"Yearly saving: ${yearly_saving:.2f}")
 
     if income == 0:
         st.info("Enter your income to begin.")
     elif saving < 0:
-        st.error("You are spending more than your monthly income.")
+        st.error("You are spending more than your income.")
     elif saving < income * 0.2:
         st.warning("You are saving less than 20% of your income.")
     else:
