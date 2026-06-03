@@ -138,7 +138,7 @@ elif mode == "Risk Management Advisor":
 
     average_salary_data = {
         "16 to 19 years old": {
-            "Less than 9th grade": 18000,
+            "Less than 9th grade": 30130,
             "Some high school, no completion": 20000,
             "Some college, no degree": 22000,
             "Associate's degree": 24000,
