@@ -129,78 +129,97 @@ elif mode == "Risk Management Advisor":
     education_scores = {
         "Less than 9th grade": 1,
         "Some high school, no completion": 2,
-        "Some college, no degree": 3,
-        "Associate's degree": 4,
-        "Bachelor's degree": 5,
-        "Doctor's degree": 6,
-        "Professional degree": 7
+        "High school completion":3,
+        "Some college, no degree":4,
+        "Associate's degree": 5,
+        "Bachelor's degree": 6,
+        "Doctor's degree": 7,
+        "Professional degree": 8
     }
 
     average_salary_data = {
-        "16 to 19 years old": {
-            "Less than 9th grade": 30130,
-            "Some high school, no completion": 20000,
-            "Some college, no degree": 22000,
-            "Associate's degree": 24000,
-            "Bachelor's degree": 26000,
-            "Doctor's degree": 28000,
-            "Professional degree": 30000
-        },
-        "20 to 24 years old": {
-            "Less than 9th grade": 22000,
-            "Some high school, no completion": 25000,
-            "Some college, no degree": 30000,
-            "Associate's degree": 35000,
-            "Bachelor's degree": 45000,
-            "Doctor's degree": 55000,
-            "Professional degree": 60000
-        },
-        "25 to 34 years old": {
-            "Less than 9th grade": 28000,
-            "Some high school, no completion": 32000,
-            "Some college, no degree": 42000,
-            "Associate's degree": 50000,
-            "Bachelor's degree": 68000,
-            "Doctor's degree": 90000,
-            "Professional degree": 105000
-        },
-        "35 to 44 years old": {
-            "Less than 9th grade": 32000,
-            "Some high school, no completion": 38000,
-            "Some college, no degree": 48000,
-            "Associate's degree": 58000,
-            "Bachelor's degree": 80000,
-            "Doctor's degree": 110000,
-            "Professional degree": 130000
-        },
-        "45 to 54 years old": {
-            "Less than 9th grade": 34000,
-            "Some high school, no completion": 40000,
-            "Some college, no degree": 52000,
-            "Associate's degree": 62000,
-            "Bachelor's degree": 85000,
-            "Doctor's degree": 115000,
-            "Professional degree": 140000
-        },
-        "55 to 64 years old": {
-            "Less than 9th grade": 33000,
-            "Some high school, no completion": 39000,
-            "Some college, no degree": 50000,
-            "Associate's degree": 60000,
-            "Bachelor's degree": 82000,
-            "Doctor's degree": 112000,
-            "Professional degree": 135000
-        },
-        "65 years and older": {
-            "Less than 9th grade": 25000,
-            "Some high school, no completion": 30000,
-            "Some college, no degree": 38000,
-            "Associate's degree": 45000,
-            "Bachelor's degree": 65000,
-            "Doctor's degree": 90000,
-            "Professional degree": 110000
-        }
+    "Less than 9th grade": {
+        "16 to 19 years old": 24248,
+        "20 to 24 years old": 24248,
+        "25 to 34 years old": 30310,
+        "35 to 44 years old": 30310,
+        "45 to 54 years old": 30310,
+        "55 to 64 years old": 24268,
+        "65 years and older": 24248
+    },
+    "Some high school, no completion": {
+        "16 to 19 years old": 27990,
+        "20 to 24 years old": 27990,
+        "25 to 34 years old": 31650,
+        "35 to 44 years old": 31650,
+        "45 to 54 years old": 31650,
+        "55 to 64 years old": 27990,
+        "65 years and older": 27990
+    },
+     "High school completion": {
+        "16 to 19 years old": 32400,
+        "20 to 24 years old": 32400,
+        "25 to 34 years old": 40500,
+        "35 to 44 years old": 40500,
+        "45 to 54 years old": 48600,
+        "55 to 64 years old": 32400,
+        "65 years and older": 32400
+    },
+    "Some college, no degree": {
+        "16 to 19 years old": 36664,
+        "20 to 24 years old": 36664,
+        "25 to 34 years old": 45830,
+        "35 to 44 years old": 54996,
+        "45 to 54 years old": 54996,
+        "55 to 64 years old": 45830,
+        "65 years and older": 36664
+    },
+  "Associate's degree": {
+        "16 to 19 years old": 39888,
+        "20 to 24 years old": 39888,
+        "25 to 34 years old": 49860,
+        "35 to 44 years old": 49860,
+        "45 to 54 years old": 59832,
+        "55 to 64 years old": 39888,
+        "65 years and older": 39888
+    },
+    "Bachelor's degree": {
+        "16 to 19 years old": 53808,
+        "20 to 24 years old": 53808,
+        "25 to 34 years old": 67260,
+        "35 to 44 years old": 67260,
+        "45 to 54 years old": 80712,
+        "55 to 64 years old": 80712,
+        "65 years and older": 53808
+    },
+    "Master's degree": {
+        "16 to 19 years old": 65000,
+        "20 to 24 years old": 65000,
+        "25 to 34 years old": 81250,
+        "35 to 44 years old": 81250,
+        "45 to 54 years old": 97500,
+        "55 to 64 years old": 97500,
+        "65 years and older": 65000
+    },
+    "Professional degree": {
+        "16 to 19 years old": 84120,
+        "20 to 24 years old": 84120,
+        "25 to 34 years old": 105150,
+        "35 to 44 years old": 105150,
+        "45 to 54 years old": 126180,
+        "55 to 64 years old": 126180,
+        "65 years and older": 126180
+    },
+    "Doctor's degree": {
+        "16 to 19 years old": 81800,
+        "20 to 24 years old": 81800,
+        "25 to 34 years old": 102250,
+        "35 to 44 years old": 102250,
+        "45 to 54 years old": 122700,
+        "55 to 64 years old": 122700,
+        "65 years and older": 122700
     }
+}
 
     age_group = st.radio(
         "Choose your age group:",
@@ -217,7 +236,7 @@ elif mode == "Risk Management Advisor":
     age_score = age_scores[age_group]
     education_score = education_scores[education_group]
 
-    average_salary = average_salary_data[age_group][education_group]
+    average_salary = average_salary_data[education_group][age_group]
 
     st.success(f"You selected: {age_group}")
     st.success(f"You selected: {education_group}")
