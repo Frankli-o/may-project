@@ -30,7 +30,7 @@ if mode == "Spending Calculator":
     personali = st.number_input(f"{period} personal insurance spending:", min_value=0.0)
 
     total_spending = rent + food + transportation + entertainment + healthcare + education + personali
-
+    saving=income-total_spending
     if period == "Day":
         daily_income = income
         daily_spending = total_spending
